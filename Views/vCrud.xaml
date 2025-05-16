@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="smoralesS6A1.Views.vCrud"
+             Title="vCrud">
+
+    <VerticalStackLayout Spacing="20" Padding="20">
+        <Label 
+            Text="CRUD DE USUARIOS"
+            FontAttributes="Bold"
+            FontSize="20"
+            HorizontalOptions="Center" />
+
+        <!-- Encabezado de la tabla -->
+        <Grid ColumnSpacing="10" Padding="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <!-- ID -->
+                <ColumnDefinition Width="*"/>
+                <!-- Nombre -->
+                <ColumnDefinition Width="*"/>
+                <!-- Apellido -->
+                <ColumnDefinition Width="*"/>
+                <!-- Clave -->
+                <ColumnDefinition Width="120"/>
+                <!-- Fecha -->
+                <ColumnDefinition Width="80"/>
+                <!-- Estado -->
+            </Grid.ColumnDefinitions>
+
+            <Label Text="ID" FontAttributes="Bold" Grid.Column="0"/>
+            <Label Text="NOMBRE" FontAttributes="Bold" Grid.Column="1"/>
+            <Label Text="APELLIDO" FontAttributes="Bold" Grid.Column="2"/>
+            <Label Text="CLAVE" FontAttributes="Bold" Grid.Column="3"/>
+            <Label Text="FECHA" FontAttributes="Bold" Grid.Column="4"/>
+            <Label Text="ESTADO" FontAttributes="Bold" Grid.Column="5"/>
+        </Grid>
+
+        <!-- Lista de usuarios -->
+        <ListView x:Name="lvUsuarios" HasUnevenRows="True" SeparatorVisibility="Default">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid ColumnSpacing="10" Padding="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="80"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="{Binding id}" Grid.Column="0"/>
+                            <Label Text="{Binding firstName}" Grid.Column="1"/>
+                            <Label Text="{Binding lastName}" Grid.Column="2"/>
+                            <Label Text="{Binding clave}" Grid.Column="3"/>
+                            <Label Text="{Binding fecha, StringFormat='{0:dd/MM/yyyy}'}" Grid.Column="4"/>
+                            <Label Text="{Binding estado}" Grid.Column="5"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>
